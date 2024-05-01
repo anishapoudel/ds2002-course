@@ -2,10 +2,11 @@
 
 from pymongo import MongoClient, errors
 import os
+from database import *
 
-mongopass = os.getenv('MONGOPASS')
-uri = "mongodb+srv://cluster0.pguxs.mongodb.net/sample_restaurants"
-client = MongoClient(uri, username='mongo', password=mongopass, connectTimeoutMS=200, retryWrites=True)
+# mongopass = os.getenv('MONGOPASS')
+# uri = "mongodb+srv://cluster0.pnxzwgz.mongodb.net/sample_restaurants"
+# client = MongoClient(uri, username='nmagee', password=mongopass, connectTimeoutMS=200, retryWrites=True)
 
 stats = client.stats
 print(stats)
@@ -19,4 +20,6 @@ print(colls)
 
 restaurants = thisdb.restaurants
 count = restaurants.count_documents({})
-print(count)
+print(count, "restaurants")
+italian = restaurants.count_documents({'cuisine': 'Italian'})
+print(italian, "Italian restaurants")

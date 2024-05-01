@@ -1,8 +1,9 @@
-image: ghcr.io/ds3002/course:latest
+# image: ghcr.io/ds3002/course:latest
 
 tasks:
-  - command: ./catchup
+  - command: sudo apt install -y mysql-client
+  - command: pip install mysqlclient
 
-github:
-  prebuilds:
-    main: true
+# github:
+#   prebuilds:
+#     main: true

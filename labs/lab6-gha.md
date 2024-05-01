@@ -47,7 +47,16 @@ The better method for creating container images is to automate it using a `Docke
         branches: [ main ]
     ```
 
-    Add this change to your repository, commit it, but do not yet push back to GitHub.
+    **NOTE** Students have helped identify a small bug in the build script. Find this
+    line in your `.github/workflows/build.yaml` file:
+
+    ```
+      IMAGE_NAME: ${{ github.actor }}/fastapi-demo
+    ```
+
+    and remove the `${{ github.actor }}` value. Replace it with your GitHub username in lowercase.
+
+    Add these changes to your repository, commit the file, but do not yet push back to GitHub.
 
 4. **Create a GitHub Personal Access Token (PAT)**
 
@@ -122,7 +131,9 @@ Your GitHub Action is now building container images automatically. Let's connect
 
 ## Make Changes, Push, and Test
 
-Now edit the `app/main.py` file. Add an additional endpoint to return data of some kind. Add, commit, and change your changes.
+Now edit the `app/main.py` file. Add an additional endpoint to return data of some kind. Verify that your application runs smoothly by running `./preview.sh` and does not trigger errors.
+
+Then add, commit, and change your changes.
 
 Verify that your changes trigger a build, and wait for the build to complete.
 
